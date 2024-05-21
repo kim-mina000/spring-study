@@ -1,0 +1,23 @@
+package com.example.demo.lombok;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
+//@Data // Getter Setter ToString 한번에 사용하는 이노테이션
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor // 생성자
+@AllArgsConstructor // 생성자
+@Builder // 생성자
+public class Person {
+	
+	String name;
+	int age;
+	
+	
+	
+
+}

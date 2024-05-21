@@ -1,0 +1,6 @@
+package com.example.demo.lombok;
+
+@SpringBootTest
+public class PersonTest {
+
+}

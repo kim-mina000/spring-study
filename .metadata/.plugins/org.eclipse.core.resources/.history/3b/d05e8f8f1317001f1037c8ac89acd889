@@ -1,0 +1,9 @@
+package com.example.demo.lombok;
+
+@Setter
+@Getter
+@ToString
+
+public class Car {
+
+}

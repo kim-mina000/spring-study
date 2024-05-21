@@ -1,0 +1,14 @@
+package com.example.demo.lombok;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest // 스프링 컨테이너 환경 임시로 가져오기
+public class PersonTest {
+	
+	@Test
+	void 롬복테스트 () {
+		
+	}
+
+}

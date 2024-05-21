@@ -1,0 +1,10 @@
+package com.example.demo.lombok;
+
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+public class Book {
+
+}
