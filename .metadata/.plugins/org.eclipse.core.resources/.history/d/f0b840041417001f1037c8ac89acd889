@@ -1,9 +1,0 @@
-package com.example.demo.lombok;
-
-@Getter
-@Setter
-@ToString
-@
-public class Movie {
-
-}
