@@ -1,0 +1,14 @@
+build.gradle
+에 추가
+// https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
+implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.3.3'
+
+resources 폴더 밑 application.properties 파일에 데이터베이스 접속정보를 추가한다.
+spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+spring.datasource.url=jdbc:mariadb://localhost:3306/bootex
+spring.datasource.username=bootuser
+spring.datasource.password=bootuser
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.show-sql=true
