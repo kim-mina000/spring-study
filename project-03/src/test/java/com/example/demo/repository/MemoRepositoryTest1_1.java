@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.demo.Repository.MemoRepository;
 import com.example.demo.entity.Memo;
+import com.example.demo.repository.MemoRepository;
 
 // 메모리 리자피토리를 사용하여 메모 테이블의 데이터를 등록, 조회, 수정, 삭제한다
 @SpringBootTest
