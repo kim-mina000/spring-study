@@ -1,0 +1,11 @@
+@charset "UTF-8";
+table {
+		width: 50%;
+        border-collapse: collapse; /* 테두리의 중복을 제거 */
+        border: 1px solid black; /* 표 전체에 외곽선 추가 */
+}
+th, td {
+	 border: 1px solid black; 
+     padding: 8px;
+     text-align: left;
+}
