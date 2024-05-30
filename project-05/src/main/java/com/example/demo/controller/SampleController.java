@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +58,12 @@ public class SampleController {
 		SampleDTO sampleDTO = new SampleDTO(1,"aaa",LocalDate.now());
 		
 		model.addAttribute("result", "success");
-		model.addAttribute("dto", sampleDTO);
-		
+		model.addAttribute("dto", sampleDTO);	
+	}
+	
+	@GetMapping("/ex10")
+	public void ex10 (Model model) {
+		//화면에 현재시간 전달
+		model.addAttribute("date",LocalDateTime.now());
 	}
 }

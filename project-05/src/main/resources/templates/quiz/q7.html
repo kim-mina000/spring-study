@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.target{
+	background:grey;
+	}
+</style>
+</head>
+<body>
+	<ul th:each="list: ${sampleDTOList}">
+<!--  		<li th:unless="${list.no}%5 == 0">[[${list}]]</li>  
+ 		<li th:if="${list.no}%5 == 0" style="background-color: pink">[[${list}]]</li>  -->
+ 		<li th:class="${list.no%5 == 0}?target">[[${list}]]</li> 
+	</ul>
+</body>
+</html>

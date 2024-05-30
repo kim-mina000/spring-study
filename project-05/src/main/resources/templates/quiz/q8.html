@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table,th,td {
+		border-collapse: collapse;
+		border: 1px solid black;
+ 		text-align: center;
+ 		padding: 2px 10px;
+	}
+</style>
+</head>
+<body>
+	<table>
+	<tr>
+		<th>성</th>
+		<th>이름</th>
+		<th>나이</th>
+		<th>주소</th>
+		<th>인천 거주 여부</th>
+	</tr>
+	<tbody>
+		<tr th:each="person:${personDTOList}">
+			<td>[[${#strings.substring(person.name,0,1)}]]</td>
+			<td>[[${#strings.substring(person.name,1)}]]</td>
+			<td>[[${person.age}]]</td>
+			<td>[[${person.address}]]</td>
+			<td th:text="${#strings.contains(person.address,'인천')}?거주:비거주"></td>
+		</tr>
+	</tbody>
+	</table>
+	
+</body>
+</html>
