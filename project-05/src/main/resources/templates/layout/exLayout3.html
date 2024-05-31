@@ -1,0 +1,43 @@
+<!-- 템플릿 레이아웃 -->
+
+<!DOCTYPE html>
+<html>
+
+<!-- 1. 외부에서 전달받은 코드 조각을 받은 준비. setContent 함수를 통해 content라는 파라미터 받기 -->
+<th:block th:fragment="setContent(content)">
+
+<style>
+    .header {
+        height: 20vh;
+        background-color: pink;
+    }
+    .content {
+        height: 30vh;
+        background-color: lightgray;
+    }
+    .footer {
+        height: 10vh;
+        background-color: green;
+    }
+</style>
+
+<body>
+
+<div class="header">
+    <h1>HEADER</h1>
+</div>
+<div class="content" >
+
+	<!-- 외부에서 전달받은 조각 출력하기 -->
+	<!-- th:replace 해당 부분을 조각코드로 교체 -->
+    <th:block th:replace = "${content}"> <!-- 파라미터로 전달된 content 출력 -->
+    </th:block>
+	
+</div>
+<div class="footer">
+    <h1>FOOTER</h1>
+</div>
+
+</body>
+</th:block>
+</html>
