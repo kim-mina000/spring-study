@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+    }
+    button {
+        margin-top: 20px;
+        width: 100px;
+    }
+</style>
+</head>
+<body>
+
+<form action="/reservation/save" method="post">
+    <div>
+        <label for="roomNo">객실번호:</label>
+        <input type="text" id="roomNo" name="roomNo" />
+    </div>
+    <div>
+        <label for="guestName">고객이름:</label>
+        <input type="text" id="guestName" name="guestName" />
+    </div>
+    <div>
+        <label for="checkInDate">예약날짜:</label>
+        <input type="text" id="checkInDate" name="checkInDate" />
+    </div>
+    <button type="submit">전송</button>
+</form>
+
+</body>
+</html>

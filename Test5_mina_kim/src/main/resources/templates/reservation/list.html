@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table,tr,td,th {
+	border: 1px solid black;
+	border-collapse: collapse;
+    padding: 10px;
+    }
+    th{
+    	background: #999;
+    }
+</style>
+</head>
+<body>
+	<table>
+		<tr>
+				<th>예약번호</th>
+				<th>객실번호</th>
+				<th>고객이름</th>
+				<th>예약날짜</th>
+		</tr>
+		<tr th:each="dto:${guest}">
+				<td>[[${dto.reservation_no}]]</td>
+				<td>[[${dto.room_no}]]</td>
+				<td>[[${dto.guest_name}]]</td>
+				<td>[[${dto.check_in_date}]]</td>
+		</tr>
+	</table>
+</body>
+</html>
