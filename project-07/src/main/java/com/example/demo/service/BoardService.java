@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import com.example.demo.dto.BoardDTO;
 import com.example.demo.entity.Board;
 
@@ -9,6 +11,9 @@ public interface BoardService {
 	
 	// 게시물 등록 메소드
 	int register(BoardDTO dto);
+	
+	// 게시물 목록조회 메소드
+	List<BoardDTO> getList();
 	
 	// dto를 엔티티로 변환하는 메소드 (일반메소드)
 	// view 단에서는 dto를 처리, DB에서는 엔티티로 로직을 처리하기 때문에 DTO를 엔티티로 변환해주어야한다
@@ -45,4 +50,7 @@ public interface BoardService {
 											.build();
 		return dto;
 	}
+	
+	
+	
 }

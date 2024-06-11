@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content})}"> 
+<th:block th:fragment="content">
+
+<h1>Board List Page
+    <span>
+        <a th:href="@{/board/register}">
+            <button type="button" class="btn btn-outline-primary"> 게시물 등록</button>
+        </a>
+    </span>
+</h1>
+
+<table class="table table-striped">
+    <!-- 부트스트랩의 스타일 적용 -->
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>등록일</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="dto : ${list}">
+    	<!-- /board/read?no=1 우리가 원하는 주소-->
+    	<!-- /board/read?no=${dto.no} 변수처리-->
+    	<!-- 
+    	골뱅이 중괄호: 링크 표현식
+    	물음표 대신 괄호를 써서 키=밸류값을 표현
+    	-->
+    <th>
+    	<a th:href="@{/board/read(no = ${dto.no})}">
+    	[[${dto.no}]]
+    	</a>
+    </th>
+    
+    <td th:text="${dto.title}"></td>
+    <td th:text="${dto.writer}"></td>
+	<td th:text="${#temporals.format(dto.regDate,'yyyy/MM/dd')}"></td>
+	<!-- 
+	달러중괄호: 변수표현식 
+	#:객체표현식(여기서는 타임리프가 제공하는 temporals 사용을 위해 사용)
+	format(원본데이터, 형식)
+	-->
+    </tr>
+    
+    </tbody>
+
+</table>
+</th:block>
+</th:block>
+<!--
+<script th:inline="javascript">
+</script>
+-->
