@@ -46,4 +46,18 @@ public class BoardServiceTest {
 			System.out.println(board);
 		}
 	}
+	
+	@Test
+	public void 게시물단건조회() {
+		BoardDTO boardDTO = service.read(10);
+		System.out.println(boardDTO);
+	}
+	
+	@Test
+	public void 게시물수정() {
+		BoardDTO boardDTO = service.read(3);
+		boardDTO.setTitle("강아지귀여워");
+		boardDTO.setContent("강아지사랑단");
+		service.modify(boardDTO);
+	}
 }
