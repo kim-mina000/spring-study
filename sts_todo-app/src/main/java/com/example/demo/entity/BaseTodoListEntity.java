@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -12,9 +12,9 @@ import lombok.Getter;
 @MappedSuperclass
 @EntityListeners(value= {AuditingEntityListener.class})
 @Getter
-public class BaseTodoListEntity {
+public abstract class BaseTodoListEntity {
 	
 	@CreatedDate
-	LocalDate regDate;
+	LocalDateTime regDate;
 
 }

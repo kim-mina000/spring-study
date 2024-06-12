@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	냐냥!
-</body>
-</html>
+
+<th:block th:replace="~{/layout/template :: setContent(~{this::content})}" >
+<th:block th:fragment="content">
+
+	<ul th:each="dto:${list}">
+		<li>[[${dto.content}]]</li>
+	</ul>
+
+</th:block>
+</th:block>

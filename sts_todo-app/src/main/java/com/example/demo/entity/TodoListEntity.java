@@ -30,9 +30,10 @@ public class TodoListEntity  extends BaseTodoListEntity{
 	@Column (length = 50, nullable = false)
 	String content;
 	
-	@Column
+	@Column (length = 12)
 	String category;
 	
-	@Column (nullable=false)
-	Boolean done;
+	@Column(length = 12, nullable=false)
+	boolean done;
+	
 }

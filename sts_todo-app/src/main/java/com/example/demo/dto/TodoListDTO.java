@@ -1,6 +1,6 @@
 package com.example.demo.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,5 +20,5 @@ public class TodoListDTO {
 	String content;
 	String category;
 	Boolean done;
-	LocalDate regDate;
+	LocalDateTime regDate;
 }

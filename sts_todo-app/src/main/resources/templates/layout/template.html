@@ -2,13 +2,31 @@
 <html lang="kr">
 
 <!-- 외부에서 전달한 조각코드 받기 -->
-<th:block th:fragment="setContent(content)">.
+<th:block th:fragment="setContent(content)">
 <head>
 <meta charset="UTF-8">
 <title>Sts Todo LIst</title>
+<!-- <link rel="stylesheet" type="text/css" href="style.css" />  -->
 </head>
 <body>
-
+	<header>
+		<h1 class="title">오늘의 할 일</h1>
+<!-- 		<form action="" type="post">
+			<input />
+			<button type="submit">Enter</button>
+		</form> -->
+		
+	</header>
+	<section>
+		<th:block th:replace="${content}">
+		</th:block>
+	</section>
+	<footer>
+		<div class="date">
+		</div>
+		<div class="music_player">
+		</div>
+	</footer>
 </body>
 </th:block>
 </html>
