@@ -60,4 +60,10 @@ public class BoardServiceTest {
 		boardDTO.setContent("강아지사랑단");
 		service.modify(boardDTO);
 	}
+	
+	@Test
+	public void 게시물삭제() {
+		BoardDTO boardDTO = service.read(4);
+		service.remove(boardDTO);
+	}
 }

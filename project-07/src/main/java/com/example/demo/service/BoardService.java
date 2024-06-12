@@ -22,6 +22,9 @@ public interface BoardService {
 	//BoardDTO modify(int no);
 	void modify(BoardDTO dto);
 	
+	// 게시물 삭제 메소드
+	void remove(BoardDTO dto);
+	
 	// dto를 엔티티로 변환하는 메소드 (일반메소드)
 	// view 단에서는 dto를 처리, DB에서는 엔티티로 로직을 처리하기 때문에 DTO를 엔티티로 변환해주어야한다
 	// default 명령어를 붙여주면 추상메소드 뿐만아니라 일반메소드도 인터페이스 안에서 구현이 가능하다

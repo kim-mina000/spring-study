@@ -89,5 +89,17 @@ public class BoardServiceImpl implements BoardService{
 		}
 		
 	}
+
+
+	@Override
+	public void remove(BoardDTO dto) {
+		Optional<Board> result = repository.findById(dto.getNo());
+		
+		if (result.isPresent()) {
+			Board entity = result.get();
+			repository.delete(entity);
+		}
+		
+	}
 	
 }

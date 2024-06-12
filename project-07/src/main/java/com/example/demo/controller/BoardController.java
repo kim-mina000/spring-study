@@ -82,7 +82,7 @@ public class BoardController {
 		model.addAttribute("dto",dto); // 화면에 특정 게시물 정보를 전달
 	}
 	
-	// 수정 처리 메소드
+//	 수정 처리 메소드
 	@PostMapping("/modify")
 	public String postModify(BoardDTO dto, RedirectAttributes redirectAttributes) {
 		service.modify(dto); // 게시물 수정
@@ -93,5 +93,12 @@ public class BoardController {
 		
 		// 상세화면으로 이동
 		return "redirect:/board/read";
+	}
+	
+	// 삭제 처리 메소드
+	@PostMapping("/remove")
+	public String remove(BoardDTO dto, RedirectAttributes redirectAttributes) {
+		service.remove(dto);
+		return "redirect:/board/list";
 	}
 }
