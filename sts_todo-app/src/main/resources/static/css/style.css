@@ -17,5 +17,7 @@
 }
 
 body {
-	background-color:black;
+	background-image: url("/images/jeju_back_ground.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }

@@ -99,7 +99,6 @@ public class BoardServiceImpl implements BoardService{
 			Board entity = result.get();
 			repository.delete(entity);
 		}
-		
 	}
 	
 }

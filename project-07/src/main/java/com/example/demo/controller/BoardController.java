@@ -97,7 +97,7 @@ public class BoardController {
 	
 	// 삭제 처리 메소드
 	@PostMapping("/remove")
-	public String remove(BoardDTO dto, RedirectAttributes redirectAttributes) {
+	public String remove(BoardDTO dto) {
 		service.remove(dto);
 		return "redirect:/board/list";
 	}
