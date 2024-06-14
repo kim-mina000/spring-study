@@ -53,9 +53,12 @@ public class BoardController {
 
     // 상세화면
     @GetMapping("/read")
-    public void read(@RequestParam(name = "no") int no, Model model) {
+    public void read(@RequestParam(name = "no") int no, 
+    		@RequestParam(defaultValue ="0", name = "page") int page ,Model model) {
         BoardDTO dto = service.read(no);
         model.addAttribute("dto", dto);
+        model.addAttribute("page", page); // 화면에 페이지 번호를 전달해서 modify 페이지에 갔다가 다시 나오더라도
+        // 다시 그 페이지를 유지할수 있게끔 해주는 역할
     }
 
     // 수정화면

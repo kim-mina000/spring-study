@@ -16,5 +16,7 @@ public abstract class BaseTodoListEntity {
 	
 	@CreatedDate
 	LocalDateTime regDate;
+	
+	boolean done;
 
 }

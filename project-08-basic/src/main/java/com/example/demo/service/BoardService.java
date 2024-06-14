@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 
 import com.example.demo.dto.BoardDTO;
 import com.example.demo.entity.Board;
+import com.example.demo.entity.Member;
 
 public interface BoardService {
 
@@ -22,15 +23,22 @@ public interface BoardService {
 
 	// 게시물 삭제 메소드
 	int remove(int no);
+	
+	// member의 id (Board의 writer)로 조회하는 메소드
+	void findByWriter (String username);
 
 	// dto를 엔티티로 변환하는 메소드
 	default Board dtoToEntity(BoardDTO dto) {
+		
+		Member member = Member.builder()
+																.id(dto.getWriter())
+																.build();
 
 		Board entity = Board.builder()
 				.no(dto.getNo())
 				.title(dto.getTitle())
 				.content(dto.getContent())
-				.writer(dto.getWriter())
+				.writer(member)
 				.build();
 		return entity;
 	}
@@ -42,7 +50,7 @@ public interface BoardService {
 				.no(entity.getNo())
 				.title(entity.getTitle())
 				.content(entity.getContent())
-				.writer(entity.getWriter())
+				.writer(entity.getWriter().getId())
 				.regDate(entity.getRegDate())
 				.modDate(entity.getModDate())
 				.build();

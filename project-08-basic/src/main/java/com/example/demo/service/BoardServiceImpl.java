@@ -12,12 +12,16 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dto.BoardDTO;
 import com.example.demo.entity.Board;
 import com.example.demo.repository.BoardRepository;
+import com.example.demo.repository.MemberRepository;
 
 @Service
 public class BoardServiceImpl implements BoardService {
 
     @Autowired
     BoardRepository repository;
+    
+    @Autowired
+    MemberRepository memberRepository;
 
     @Override
     public int register(BoardDTO dto) {
@@ -93,6 +97,14 @@ public class BoardServiceImpl implements BoardService {
 		Page<BoardDTO> dtoPage = entityPage.map(entity -> entityToDto(entity));
 		
 		return dtoPage;
+	}
+
+
+
+	@Override
+	public void findByWriter(String username) {
+		
+		
 	}
 
 }
