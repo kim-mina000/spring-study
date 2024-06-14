@@ -3,10 +3,34 @@
 
 <th:block th:replace="~{/layout/template :: setContent(~{this::content})}" >
 <th:block th:fragment="content">
+	<form>
+		<input type="text" name="category" />
+		<input type="text" name="content" />
+	</form>
+		<button type="button" class="listBtn addTodo">추가</button>
 
 	<ul th:each="dto:${list}">
 		<li>[[${dto.content}]]</li>
 	</ul>
-
+  <script th:inline="javascript">
+	  document.addEventListener('DOMContentLoaded', function (){
+		  var allButton = document.querySelectorAll(".listBtn");
+		  
+		  allButton.forEach(function(button){
+			  button.addEventListener('click', function(){
+				  
+				  var addButton = document.querySelector('.addTodo');
+				  if (addButton) {
+					  // form 속성 설정
+					  addButton.setAttribute('method', 'get');
+					  addButton.setAttribute('action', '/todoList/main');
+					  
+					  // form 제출
+					  form.submit();
+				  }
+			  })
+		  })
+	  })
+  </script>
 </th:block>
 </th:block>

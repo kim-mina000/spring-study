@@ -16,8 +16,28 @@
     font-style: normal;
 }
 
+* {
+	margin: 0;
+	padding: 0;
+ 	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+li {
+	line-decoration: none;
+}
+
 body {
 	background-image: url("/images/jeju_back_ground.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
+	font-family: 'Ownglyph_ryuttung-Rg';
+}
+
+.title{
+	    font-family: 'EF_jejudoldam';
 }

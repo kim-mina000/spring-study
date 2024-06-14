@@ -1,8 +1,7 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -18,12 +17,12 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="tbl_member")
+@Table(name="tbl_todoListMember")
 @Entity
-public class Member {
+public class Member{
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(length = 50)
 	String name;
 	
 

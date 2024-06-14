@@ -17,6 +17,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class TodoListDTO {
 	int no;
+	String name;
 	String content;
 	String category;
 	Boolean done;

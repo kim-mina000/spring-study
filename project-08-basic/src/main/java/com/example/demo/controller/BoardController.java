@@ -46,8 +46,8 @@ public class BoardController {
     // 등록처리
     @PostMapping("/register")
     public String registerPost(BoardDTO dto, RedirectAttributes redirectAttributes) {
-        int no = service.register(dto);     
-        redirectAttributes.addFlashAttribute("msg", no);   
+        int no = service.register(dto); 
+        redirectAttributes.addFlashAttribute("msg", no);
         return "redirect:/board/list";
     }
 

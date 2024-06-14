@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.example.demo.entity.RoomReservation"/>
     <fullyQualifiedTypeName name="org.springframework.data.annotation.LastModifiedDate"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.config.EnableJpaAuditing"/>
     <fullyQualifiedTypeName name="com.example.demo.entity.BaseEntity"/>
@@ -23,9 +22,7 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
     <fullyQualifiedTypeName name="com.example.demo.entity.TodoListEntity"/>
     <fullyQualifiedTypeName name="com.example.demo.repository.TodoListRepository"/>
-    <fullyQualifiedTypeName name="com.example.demo.dto.TodoListDTO"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
-    <fullyQualifiedTypeName name="com.example.demo.service.TodoListService"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Sort"/>
     <fullyQualifiedTypeName name="java.awt.print.Pageable"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
@@ -33,7 +30,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="lombok.Builder"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
@@ -54,10 +50,14 @@
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
-    <fullyQualifiedTypeName name="org.springframework.boot.test.context.SpringBootTest"/>
-    <fullyQualifiedTypeName name="com.example.demo.repository.MemberRepository"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.example.demo.service.MemberService"/>
-    <fullyQualifiedTypeName name="com.example.demo.entity.Member"/>
     <fullyQualifiedTypeName name="com.example.demo.dto.MemberDTO"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="com.example.demo.repository.MemberRepository"/>
+    <fullyQualifiedTypeName name="com.example.demo.entity.TodoList"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.context.SpringBootTest"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.example.demo.service.TodoListService"/>
+    <fullyQualifiedTypeName name="com.example.demo.dto.TodoListDTO"/>
+    <fullyQualifiedTypeName name="com.example.demo.entity.Member"/>
 </qualifiedTypeNameHistroy>

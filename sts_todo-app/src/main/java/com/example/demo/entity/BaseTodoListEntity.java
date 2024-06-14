@@ -10,9 +10,9 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 
 @MappedSuperclass
-@EntityListeners(value= {AuditingEntityListener.class})
+@EntityListeners(value = { AuditingEntityListener.class }) 
 @Getter
-public abstract class BaseTodoListEntity {
+abstract class BaseTodoListEntity {
 	
 	@CreatedDate
 	LocalDateTime regDate;
