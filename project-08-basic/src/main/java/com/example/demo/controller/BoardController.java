@@ -21,10 +21,11 @@ public class BoardController {
     BoardService service;
 
     // 메인화면
-    @GetMapping("/main")
-    public void main() {
-    }
-
+//    @GetMapping("/main")
+//    public void main() {
+//    }
+// home -> main으로 이전
+    
     // 목록화면
     @GetMapping("/list")
     public void list(@RequestParam(defaultValue ="0", name = "page") int page, Model model) {
@@ -82,5 +83,6 @@ public class BoardController {
         service.remove(no);
         return "redirect:/board/list";
     }
+    
 
 }
