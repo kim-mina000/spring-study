@@ -17,7 +17,7 @@ public class TodoListServiceTest {
 	@Test
 	public void 투두가디비에저장되는지 () {
 		TodoListDTO dto = TodoListDTO.builder()
-																				.name("미나")
+																				.name("hi")
 																				.category("기타")
 																				.content("얏호집가자~")
 																				.build();

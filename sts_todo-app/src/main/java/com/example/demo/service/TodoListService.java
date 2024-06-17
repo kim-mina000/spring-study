@@ -11,8 +11,8 @@ public interface TodoListService {
 	// 게시물 목록조회
 	List<TodoListDTO> getList();
 	
-	// 멤버 저장
-	void saveMember(Member member);
+	// 특정 아이디가 쓴 목록만 조회
+//	List<TodoListDTO> getYourTodo(Member member);
 	
 	// todo 저장
 	void saveTodo(TodoListDTO todoList);

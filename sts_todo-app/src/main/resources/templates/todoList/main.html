@@ -3,7 +3,10 @@
 
 <th:block th:replace="~{/layout/template :: setContent(~{this::content})}" >
 <th:block th:fragment="content">
+	<h1>[[${name}]]</h1>
 	<form>
+		<!-- <input type="text" name="name" /> -->
+		<input type="text" name="name" th:value="${name}" readonly/>
 		<input type="text" name="category" />
 		<input type="text" name="content" />
 	</form>
@@ -13,7 +16,7 @@
 		<li>[[${dto.content}]]</li>
 	</ul>
   <script th:inline="javascript">
-	  document.addEventListener('DOMContentLoaded', function (){
+	  /* document.addEventListener('DOMContentLoaded', function (){
 		  var allButton = document.querySelectorAll(".listBtn");
 		  
 		  allButton.forEach(function(button){
@@ -30,6 +33,15 @@
 				  }
 			  })
 		  })
+	  }) */
+	  var form = $("form");
+	  
+	  $(".listBtn").click(function(){
+	
+		  form
+		  			.attr("action","/todoList/main")
+		  			.attr("method","post")
+		  			.submit();
 	  })
   </script>
 </th:block>

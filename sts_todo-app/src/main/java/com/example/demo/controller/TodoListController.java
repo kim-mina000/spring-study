@@ -8,9 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dto.TodoListDTO;
 import com.example.demo.entity.Member;
+import com.example.demo.service.MemberService;
 import com.example.demo.service.TodoListService;
 
 @Controller
@@ -20,14 +22,19 @@ public class TodoListController {
 	@Autowired
 	TodoListService service;
 	
+	@Autowired
+	MemberService memberService;
+	
+	
 	@GetMapping("")
 	public String index() {
 		return "/layout/index";
 	}
 	
 	@PostMapping("")
-	public String getName(Member member) {
-		service.saveMember(member);
+	public String getName(Member member,RedirectAttributes redirectAttributes) {
+		memberService.saveMember(member);
+		redirectAttributes.addFlashAttribute("name",member.getName());
 		return "redirect:/todoList/main";
 	}
 
@@ -38,7 +45,8 @@ public class TodoListController {
 	}
 	
 	@PostMapping("/main")
-	public void main(TodoListDTO dto) {
+	public String main(TodoListDTO dto) {
 		service.saveTodo(dto);
+		return "./todoList/main";
 	}
 }

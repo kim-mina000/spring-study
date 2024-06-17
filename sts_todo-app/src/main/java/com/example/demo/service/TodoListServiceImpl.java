@@ -1,16 +1,13 @@
 package com.example.demo.service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.TodoListDTO;
-import com.example.demo.entity.Member;
 import com.example.demo.entity.TodoList;
-import com.example.demo.repository.MemberRepository;
 import com.example.demo.repository.TodoListRepository;
 
 @Service
@@ -19,8 +16,6 @@ public class TodoListServiceImpl implements TodoListService{
 	@Autowired
 	TodoListRepository repository;
 	
-	@Autowired
-	MemberRepository memberRepository;
 
 	// 게시물 목록 조회
 	@Override
@@ -33,18 +28,16 @@ public class TodoListServiceImpl implements TodoListService{
 	}
 
 	@Override
-	public void saveMember(Member member) {
-		memberRepository.save(member);
+	public void saveTodo(TodoListDTO dto) {
+		TodoList entity = dtoToEntity(dto);
+		repository.save(entity);
 	}
 
-	@Override
-	public void saveTodo(TodoListDTO dto) {
-		Optional<TodoList> result = repository.findById(dto.getNo());
-		if (result.isPresent()) {
-			TodoList entity = dtoToEntity(dto);
-			repository.save(entity);
-		}
-	}
+//	@Override
+//	public List<TodoListDTO> getYourTodo(Member member) {
+//		List<TodoListDTO> = repository.fin
+//		return null;
+//	}
 	
 	
 }
