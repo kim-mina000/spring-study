@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.TodoListDTO;
+import com.example.demo.entity.Member;
 import com.example.demo.entity.TodoList;
 import com.example.demo.repository.TodoListRepository;
 
@@ -33,11 +34,12 @@ public class TodoListServiceImpl implements TodoListService{
 		repository.save(entity);
 	}
 
-//	@Override
-//	public List<TodoListDTO> getYourTodo(Member member) {
-//		List<TodoListDTO> = repository.fin
-//		return null;
-//	}
+	@Override
+	public List<TodoListDTO> getYourTodo(Member member) {
+		List<TodoList> entityList = repository.get(member.getName());
+		List<TodoListDTO> dtoList = entityList.stream().map(entity -> entityToDTO(entity)).collect(Collectors.toList());	
+		return dtoList;
+	}
 	
 	
 }

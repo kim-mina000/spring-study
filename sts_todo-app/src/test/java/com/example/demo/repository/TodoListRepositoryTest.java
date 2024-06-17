@@ -37,5 +37,11 @@ public class TodoListRepositoryTest {
 		memberRepository.save(member);
 	}
 	
+	@Test
+	void 특정아이디로만조회() {
+		System.out.println(repository.get("미나"));
+		
+	}
+	
 	
 }

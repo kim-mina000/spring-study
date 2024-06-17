@@ -32,12 +32,34 @@ li {
 }
 
 body {
+	width: 100vw;
+	height:100hw;
 	background-image: url("/images/jeju_back_ground.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-family: 'Ownglyph_ryuttung-Rg';
+	 text-align: center;
 }
 
 .title{
+	margin-top:10%;
 	    font-family: 'EF_jejudoldam';
+}
+
+.todoList{
+	display:flex;
+	flex-direction: center;
+	align-items: center;
+}
+
+.done {
+	text-decoration: line-through;
+	color:#555;
+}
+
+form .myName {
+	width: auto;
+	background: transparent;
+	outline: none;
+	
 }

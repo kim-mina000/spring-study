@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
  <!-- JS 라이브러리 추가 -->
  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
 </head>
 <body>
 	<header>
@@ -25,8 +26,10 @@
 	</section>
 	<footer>
 		<div class="date">
+		<th:block>[[${#temporals.format(now, 'yyyy/MM/dd HH:mm:ss')}]]</th:block>
 		</div>
 		<div class="music_player">
+		<h1>ㅎㅎ,,!</h1>
 		</div>
 	</footer>
 </body>

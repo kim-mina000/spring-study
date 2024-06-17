@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dto.TodoListDTO;
 import com.example.demo.entity.Member;
 import com.example.demo.service.MemberService;
 import com.example.demo.service.TodoListService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/todoList")
@@ -32,21 +34,42 @@ public class TodoListController {
 	}
 	
 	@PostMapping("")
-	public String getName(Member member,RedirectAttributes redirectAttributes) {
+	public String getName(Member member,
+//			RedirectAttributes redirectAttributes,
+			HttpSession session) {
 		memberService.saveMember(member);
-		redirectAttributes.addFlashAttribute("name",member.getName());
-		return "redirect:/todoList/main";
+		session.setAttribute("name", member.getName());
+//		redirectAttributes.addFlashAttribute("name",member.getName());
+		return "redirect:/todoList/main";	
 	}
 
 	@GetMapping("/main")
-	public void main(Member member, Model model) {
-		List<TodoListDTO> list = service.getList();	
+	public void main(
+			Model model,
+			HttpSession session
+			) {
+		String name = (String) session.getAttribute("name");
+		
+		Member member = Member.builder().name(name).build();
+		List<TodoListDTO> list = service.getYourTodo(member);	
+		
+
 		model.addAttribute("list",list);
+		model.addAttribute("name",name);
+		
+		LocalDateTime now = LocalDateTime.now();
+		
+		System.out.println(now);
+		model.addAttribute("now",now);
+		
+		
+		
 	}
 	
 	@PostMapping("/main")
-	public String main(TodoListDTO dto) {
+	public String main(TodoListDTO dto, HttpSession session) {
 		service.saveTodo(dto);
-		return "./todoList/main";
+		String name = (String) session.getAttribute("name");
+		return "redirect:/todoList/main";	
 	}
 }

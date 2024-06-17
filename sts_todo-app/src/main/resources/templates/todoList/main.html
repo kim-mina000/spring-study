@@ -1,48 +1,74 @@
 <!DOCTYPE html>
 <html>
 
-<th:block th:replace="~{/layout/template :: setContent(~{this::content})}" >
-<th:block th:fragment="content">
-	<h1>[[${name}]]</h1>
-	<form>
-		<!-- <input type="text" name="name" /> -->
-		<input type="text" name="name" th:value="${name}" readonly/>
-		<input type="text" name="category" />
-		<input type="text" name="content" />
-	</form>
+<th:block
+	th:replace="~{/layout/template :: setContent(~{this::content})}">
+	<th:block th:fragment="content">
+
+		<form>
+			<!-- <input type="text" name="name" /> -->
+			<input type="text" name="name" th:value="${name}" class="myName"
+				readonly /> <input type="text" name="category" /> <input
+				type="text" name="content" />
+		</form>
+
 		<button type="button" class="listBtn addTodo">추가</button>
 
-	<ul th:each="dto:${list}">
-		<li>[[${dto.content}]]</li>
-	</ul>
-  <script th:inline="javascript">
-	  /* document.addEventListener('DOMContentLoaded', function (){
-		  var allButton = document.querySelectorAll(".listBtn");
-		  
-		  allButton.forEach(function(button){
-			  button.addEventListener('click', function(){
-				  
-				  var addButton = document.querySelector('.addTodo');
-				  if (addButton) {
-					  // form 속성 설정
-					  addButton.setAttribute('method', 'get');
-					  addButton.setAttribute('action', '/todoList/main');
+		<ul th:each="dto:${list}" class="todoList">
+			<input class="form-check-input" type="checkbox" value=""
+				 th:id="flexCheckDefault+${dto.no}" name="done">
+			<label class="form-check-label" th:for="flexCheckDefault+${dto.no}">
+				<li>[[${dto.content}]]</li>
+			</label>
+<!-- <div class="input-group mb-3">
+  <input type="text" class="form-control" aria-label="Text input with dropdown button">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>  드롭다운 input-->
+		</ul>
+		<script th:inline="javascript">
+			/* document.addEventListener('DOMContentLoaded', function (){
+			  var allButton = document.querySelectorAll(".listBtn");
+			  
+			  allButton.forEach(function(button){
+				  button.addEventListener('click', function(){
 					  
-					  // form 제출
-					  form.submit();
-				  }
+					  var addButton = document.querySelector('.addTodo');
+					  if (addButton) {
+						  // form 속성 설정
+						  addButton.setAttribute('method', 'get');
+						  addButton.setAttribute('action', '/todoList/main');
+						  
+						  // form 제출
+						  form.submit();
+					  }
+				  })
 			  })
-		  })
-	  }) */
-	  var form = $("form");
-	  
-	  $(".listBtn").click(function(){
-	
-		  form
-		  			.attr("action","/todoList/main")
-		  			.attr("method","post")
-		  			.submit();
-	  })
-  </script>
-</th:block>
+			}) */
+			$(document).ready(
+					function() {
+						var form = $("form");
+
+						$(".listBtn").click(
+								function() {
+
+									form.attr("action", "/todoList/main").attr(
+											"method", "post").submit();
+								});
+
+						$('input:checkbox[name=done]').each(function(index) {
+							if ($(this).is(":checked") == true) {
+								console.log($(this).val());
+							}
+						})
+
+					});
+		</script>
+	</th:block>
 </th:block>
