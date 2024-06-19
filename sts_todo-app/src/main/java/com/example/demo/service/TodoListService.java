@@ -14,6 +14,11 @@ public interface TodoListService {
 //	 특정 아이디가 쓴 목록만 조회
 	List<TodoListDTO> getYourTodo(Member member);
 	
+	// 수정
+	
+	
+	// 삭제
+	
 	// todo 저장
 	void saveTodo(TodoListDTO todoList);
 	

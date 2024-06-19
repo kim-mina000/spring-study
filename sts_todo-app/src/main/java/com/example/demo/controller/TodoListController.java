@@ -72,4 +72,14 @@ public class TodoListController {
 		String name = (String) session.getAttribute("name");
 		return "redirect:/todoList/main";	
 	}
+	
+	@PostMapping("/delete")
+	public void delete(TodoListDTO dto) {
+		System.out.println("delete");
+	}
+	
+	@PostMapping("/edit")
+	public void edit(TodoListDTO dto) {
+		System.out.println("edit");
+	}
 }

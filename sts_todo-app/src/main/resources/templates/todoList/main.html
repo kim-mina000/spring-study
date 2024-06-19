@@ -1,6 +1,55 @@
 <!DOCTYPE html>
 <html>
+<script th:inline="javascript">
+	/* document.addEventListener('DOMContentLoaded', function (){
+	  var allButton = document.querySelectorAll(".listBtn");
+	  
+	  allButton.forEach(function(button){
+		  button.addEventListener('click', function(){
+			  
+			  var addButton = document.querySelector('.addTodo');
+			  if (addButton) {
+				  // form 속성 설정
+				  addButton.setAttribute('method', 'get');
+				  addButton.setAttribute('action', '/todoList/main');
+				  
+				  // form 제출
+				  form.submit();
+			  }
+		  })
+	  })
+	}) */
+	$(document).ready(
+			function() {
+				var form = $("form");
 
+				$(".listBtn").click(
+						function() {
+							form.attr("action", "/todoList/main")
+							.attr("method", "post").submit();
+						});
+
+				$("#editButton").click(
+						function() {
+							form.attr("action", "/todoList/edit")
+							.attr("method", "post").submit();
+						});
+
+				$("#deleteButton").click(
+						function() {
+							form.attr("action", "/todoList/delete")
+							.attr("method", "post")
+							.submit();
+						});
+
+				$('input:checkbox[name=done]').each(function(index) {
+					if ($(this).is(":checked") == true) {
+						console.log($(this).val());
+					}
+				})
+
+			});
+</script>
 <th:block
 	th:replace="~{/layout/template :: setContent(~{this::content})}">
 	<th:block th:fragment="content">
@@ -14,13 +63,16 @@
 
 		<button type="button" class="listBtn addTodo">추가</button>
 
-		<ul th:each="dto:${list}" class="todoList">
+		<ul class="todoList">
+			<th:block th:each="dto:${list}">
 			<input class="form-check-input" type="checkbox" value=""
-				 th:id="flexCheckDefault+${dto.no}" name="done">
+				th:id="flexCheckDefault+${dto.no}" name="done">
 			<label class="form-check-label" th:for="flexCheckDefault+${dto.no}">
 				<li>[[${dto.content}]]</li>
 			</label>
-<!-- <div class="input-group mb-3">
+			<button type="button" id="editButton">수정</button>
+			<button type="button" id="deleteButton">삭제</button>
+			<!-- <div class="input-group mb-3">
   <input type="text" class="form-control" aria-label="Text input with dropdown button">
   <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
   <ul class="dropdown-menu dropdown-menu-end">
@@ -31,44 +83,8 @@
     <li><a class="dropdown-item" href="#">Separated link</a></li>
   </ul>
 </div>  드롭다운 input-->
+</th:block>
 		</ul>
-		<script th:inline="javascript">
-			/* document.addEventListener('DOMContentLoaded', function (){
-			  var allButton = document.querySelectorAll(".listBtn");
-			  
-			  allButton.forEach(function(button){
-				  button.addEventListener('click', function(){
-					  
-					  var addButton = document.querySelector('.addTodo');
-					  if (addButton) {
-						  // form 속성 설정
-						  addButton.setAttribute('method', 'get');
-						  addButton.setAttribute('action', '/todoList/main');
-						  
-						  // form 제출
-						  form.submit();
-					  }
-				  })
-			  })
-			}) */
-			$(document).ready(
-					function() {
-						var form = $("form");
 
-						$(".listBtn").click(
-								function() {
-
-									form.attr("action", "/todoList/main").attr(
-											"method", "post").submit();
-								});
-
-						$('input:checkbox[name=done]').each(function(index) {
-							if ($(this).is(":checked") == true) {
-								console.log($(this).val());
-							}
-						})
-
-					});
-		</script>
 	</th:block>
 </th:block>
