@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,22 @@ public class TodoListServiceImpl implements TodoListService{
 		List<TodoList> entityList = repository.get(member.getName());
 		List<TodoListDTO> dtoList = entityList.stream().map(entity -> entityToDTO(entity)).collect(Collectors.toList());	
 		return dtoList;
+	}
+
+	@Override
+	public void edit(TodoListDTO dto) {
+		Optional<TodoList> result = repository.findById(dto.getNo());
+		if(result.isPresent()) {
+			TodoList entity = result.get();
+			entity.setContent(dto.getContent());
+			repository.save(entity);
+		}
+		
+	}
+
+	@Override
+	public void delete(int no) {
+		repository.deleteById(no);
 	}
 	
 	

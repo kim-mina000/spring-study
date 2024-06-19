@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script th:inline="javascript">
 	/* document.addEventListener('DOMContentLoaded', function (){
 	  var allButton = document.querySelectorAll(".listBtn");
@@ -23,32 +24,64 @@
 			function() {
 				var form = $("form");
 
-				$(".listBtn").click(
+				$(".addTodo").click(
 						function() {
-							form.attr("action", "/todoList/main")
-							.attr("method", "post").submit();
+							form.attr("action", "/todoList/main").attr(
+									"method", "post").submit();
 						});
 
-				$("#editButton").click(
-						function() {
-							form.attr("action", "/todoList/edit")
-							.attr("method", "post").submit();
-						});
+				$(".editButton").click(function() {
+					$.ajax({
+			            type: 'POST',
+			            url: '/todoList/edit', // 수정 처리를 담당하는 컨트롤러 URL
+			            success: function(response) {
+			                // 수정 요청이 성공했을 때 모달을 열기
+			                $('#myModal').show();
+			            }
+			        });
+					// 모달 닫기
+					$('.close').click(function() {
+				        $('#myModal').hide();
+				    });
+			    });
 
-				$("#deleteButton").click(
-						function() {
-							form.attr("action", "/todoList/delete")
-							.attr("method", "post")
-							.submit();
-						});
+				/* 				$(".deleteButton").click(
+				 function() {
+				 th:href=@{/todoList/main(no=${dto.no})} 
+				 form.attr("action", "/todoList/delete")
+				 .attr("method", "post")
+				 .attr({
+				 type: 'hidden',
+				 name: 'no',
+				 value: 
+				 }) 
+				 .submit();
+				 }); */
 
 				$('input:checkbox[name=done]').each(function(index) {
 					if ($(this).is(":checked") == true) {
 						console.log($(this).val());
 					}
 				})
-
 			});
+
+	function handleDeleteButton(buttonElement) {
+		var liElement = buttonElement.closest('li');
+		var no = liElement.getAttribute('data-no');
+
+		$.ajax({
+			type : 'POST',
+			url : '/todoList/delete', // 컨트롤러에서 처리할 URL
+			data : {
+				no : no
+			},
+			success : function(response) {
+				// 성공적으로 처리된 후의 로직
+				console.log('Successfully sent item no:', no);
+			}
+		})
+	}
+	
 </script>
 <th:block
 	th:replace="~{/layout/template :: setContent(~{this::content})}">
@@ -56,35 +89,38 @@
 
 		<form>
 			<!-- <input type="text" name="name" /> -->
-			<input type="text" name="name" th:value="${name}" class="myName"
-				readonly /> <input type="text" name="category" /> <input
-				type="text" name="content" />
+			<input type="text" name="name" th:value="${name}" class="myName" readonly />
+			<input type="text" name="category" placeholder="카테고리" />
+			<input type="text" name="content" placeholder="할 일" />
 		</form>
 
 		<button type="button" class="listBtn addTodo">추가</button>
 
 		<ul class="todoList">
-			<th:block th:each="dto:${list}">
-			<input class="form-check-input" type="checkbox" value=""
-				th:id="flexCheckDefault+${dto.no}" name="done">
-			<label class="form-check-label" th:for="flexCheckDefault+${dto.no}">
-				<li>[[${dto.content}]]</li>
-			</label>
-			<button type="button" id="editButton">수정</button>
-			<button type="button" id="deleteButton">삭제</button>
-			<!-- <div class="input-group mb-3">
-  <input type="text" class="form-control" aria-label="Text input with dropdown button">
-  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">Separated link</a></li>
-  </ul>
-</div>  드롭다운 input-->
-</th:block>
+		
+			<li th:each="dto:${list}" th:attr="data-no=${dto.no}">
+			<input
+				class="form-check-input" type="checkbox" value=""
+				th:id="flexCheckDefault+${dto.no}" name="done"> 
+				<label
+				class="form-check-label" th:for="flexCheckDefault+${dto.no}">
+					[[${dto.content}]] 
+				</label>
+
+				<button type="button" class="editButton">
+				수정
+				</button>
+				<button type="button" class="deleteButton"
+				onclick="handleDeleteButton(this)">
+				삭제
+				</button></li>
 		</ul>
 
 	</th:block>
 </th:block>
+
+<div id="myModal">
+	<input type="text" name="category"  />
+	<input type="text" name="content"  />
+	<button type="button" class="close">X</button> 
+</div>

@@ -20,7 +20,7 @@ public class TodoListServiceTest {
 	@Test
 	public void 투두가디비에저장되는지 () {
 		TodoListDTO dto = TodoListDTO.builder()
-																				.name("hi")
+																				.name("냐냐냐")
 																				.category("기타")
 																				.content("얏호집가자~")
 																				.build();
@@ -33,5 +33,18 @@ public class TodoListServiceTest {
 		for(TodoListDTO dto: list) {
 			System.out.println(dto);
 		}
+	}
+	@Test
+	public void 삭제() {
+		service.delete(7);
+	}
+	@Test
+	public void 수정() {
+		TodoListDTO dto = TodoListDTO.builder()
+																				.name("냐냐냐")
+																				.no(2)
+																				.content("진짜로??")
+																				.build();
+		service.edit(dto);
 	}
 }

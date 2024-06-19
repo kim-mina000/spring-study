@@ -46,12 +46,6 @@ body {
 	    font-family: 'EF_jejudoldam';
 }
 
-.todoList{
-	display:flex;
-	flex-direction: center;
-	align-items: center;
-}
-
 .done {
 	text-decoration: line-through;
 	color:#555;
@@ -61,5 +55,14 @@ form .myName {
 	width: auto;
 	background: transparent;
 	outline: none;
-	
+}
+
+#myModal{
+	position: fixed;
+    top: 30%;
+    right: 50%;
+    
+    background: #fff;
+    width: 500px;
+    height: 50px;
 }

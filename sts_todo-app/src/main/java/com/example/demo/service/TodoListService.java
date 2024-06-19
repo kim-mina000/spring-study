@@ -15,9 +15,10 @@ public interface TodoListService {
 	List<TodoListDTO> getYourTodo(Member member);
 	
 	// 수정
-	
+	void edit(TodoListDTO dto);
 	
 	// 삭제
+	void delete(int no);
 	
 	// todo 저장
 	void saveTodo(TodoListDTO todoList);
