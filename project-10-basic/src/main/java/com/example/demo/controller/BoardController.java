@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -34,10 +36,17 @@ public class BoardController {
 	public void register() {
 	}
 
+	// 등록 처리 메소드
+	// Principal 인증객체를 저장하고 있다가 필요할 때마다 꺼내 씀
+	// 로그인을 한 순간부터 로그아웃을 할 때까지 컨테이너에 계속 담겨있음!
 	@PostMapping("/register")
-	public String registerPost(BoardDTO dto, RedirectAttributes redirectAttributes) {
+	public String registerPost(BoardDTO dto, RedirectAttributes redirectAttributes, Principal  principal) {
+		// 인증 객체에서 아이디를 꺼내서, 게시물으 ㅣ작성자로 입력
+		String id = principal.getName();
+		dto.setWriter(id);
 		int no = service.register(dto);
-		redirectAttributes.addFlashAttribute("msg", no);
+		redirectAttributes.addFlashAttribute("msg",no);
+		
 		return "redirect:/board/list";
 	}
 

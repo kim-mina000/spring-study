@@ -34,8 +34,6 @@
 		<item value="org.eclipse.wst.web_ui.feature:3.31.0.v202403030558"/>
 		<item value="org.eclipse.wst.xml_ui.feature:3.33.0.v202402030243"/>
 		<item value="org.jboss.tools.m2e.wro4j.feature:1.2.1.202301111328"/>
-		<item value="org.jkiss.dbeaver.ide.feature:24.0.5.202405191503"/>
-		<item value="org.jkiss.dbeaver.runtime.feature:24.0.5.202405191503"/>
 		<item value="org.sonatype.m2e.egit.feature:0.17.0.202209271423"/>
 	</list>
 	<section name="SmartImportWizard">
