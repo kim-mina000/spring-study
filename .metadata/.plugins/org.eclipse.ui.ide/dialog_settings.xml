@@ -42,6 +42,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\0.Kim_mina\[MINA]spring-study\sts_todo-app"/>
 			<item value="C:\0_kimmina\mina_spring-study\project09-basic"/>
 			<item value="C:\0_kimmina\mina_spring-study\project-09-basic"/>
 			<item value="C:\0_kimmina\mina_spring-study\project-2"/>

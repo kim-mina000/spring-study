@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
-    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Modifying"/>
-    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
-    <fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
-    <fullyQualifiedTypeName name="com.example.demo.entity.TodoList"/>
-    <fullyQualifiedTypeName name="com.example.demo.service.TodoListService"/>
     <fullyQualifiedTypeName name="ch.qos.logback.core.model.Model"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
@@ -28,7 +22,6 @@
     <fullyQualifiedTypeName name="com.example.demo.entity.Board"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="com.example.demo.dto.CommentDTO"/>
-    <fullyQualifiedTypeName name="com.example.demo.dto.MemberDTO"/>
     <fullyQualifiedTypeName name="com.example.demo.dto.BoardDTO"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
@@ -39,18 +32,11 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="com.example.demo.dto.TodoListDTO"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
-    <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.EnableWebSecurity"/>
-    <fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
-    <fullyQualifiedTypeName name="org.springframework.security.crypto.password.PasswordEncoder"/>
-    <fullyQualifiedTypeName name="org.springframework.security.web.SecurityFilterChain"/>
-    <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.builders.HttpSecurity"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.authority.SimpleGrantedAuthority"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.example.demo.service.MemberService"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UsernameNotFoundException"/>
     <fullyQualifiedTypeName name="com.example.demo.dto.CustomUser"/>
@@ -60,4 +46,18 @@
     <fullyQualifiedTypeName name="org.springframework.boot.test.context.SpringBootTest"/>
     <fullyQualifiedTypeName name="lombok.ToString"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.DeserializationFeature"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.config.EnableJpaAuditing"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.EnableWebSecurity"/>
+    <fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.security.crypto.password.PasswordEncoder"/>
+    <fullyQualifiedTypeName name="org.springframework.security.web.SecurityFilterChain"/>
+    <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.builders.HttpSecurity"/>
+    <fullyQualifiedTypeName name="com.example.demo.security.filter.ApiCheckFilter"/>
+    <fullyQualifiedTypeName name="com.example.demo.security.util.JWTUtil"/>
+    <fullyQualifiedTypeName name="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter"/>
+    <fullyQualifiedTypeName name="jakarta.websocket.Session"/>
+    <fullyQualifiedTypeName name="org.springframework.security.config.http.SessionCreationPolicy"/>
+    <fullyQualifiedTypeName name="com.example.demo.dto.MemberDTO"/>
 </qualifiedTypeNameHistroy>
